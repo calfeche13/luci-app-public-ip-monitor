@@ -43,8 +43,6 @@ function processPostRendering(data, node = document) {
 
   processTabVisibility(data, node);
 
-  console.log(data);
-
   node
     .querySelector('div.cbi-section-node#cbi-public_ip_monitor-ipv4')
     .appendChild(E('p', {}, [
@@ -109,7 +107,6 @@ return view.extend({
 
     let ipv4ScriptCurrentContent = (document.querySelector("textarea#ipv4_script").value || '').trim().replace(/\r\n/g, '\n') + '\n';
     if (ipv4ScriptCurrentContent != ipv4ScriptContent) {
-      console.log("saving");
       tasks.push(save_ipv4_script_content(ipv4ScriptCurrentContent));
       // set global variable to prevent refreshing
       ipv4ScriptContent = ipv4ScriptCurrentContent;
@@ -125,17 +122,17 @@ return view.extend({
     return runTasks(tasks);
   },
   handleSaveApply: function(ev, mode) {
-      return this.handleSave(ev).then(() => {
-          classes.ui.changes.apply(mode == '0');
-      });
+    return this.handleSave(ev).then(() => {
+        classes.ui.changes.apply(mode == '0');
+    });
   },
   handleReset: function(ev) {
-      var tasks = [];
-      document.getElementById('maincontent').querySelectorAll('.cbi-map').forEach((map) => {
-          tasks.push(DOM.callClassMethod(map, 'reset'));
-      });
+    var tasks = [];
+    document.getElementById('maincontent').querySelectorAll('.cbi-map').forEach((map) => {
+        tasks.push(DOM.callClassMethod(map, 'reset'));
+    });
 
-      return runTasks(tasks);
+    return runTasks(tasks);
   },
   load: function() {
 		return Promise.all([
@@ -148,8 +145,6 @@ return view.extend({
 
     ipv4ScriptContent = (data[0] || {'content' : ''}).content;
     ipv6ScriptContent = (data[1] || {'content' : ''}).content;
-
-    window.m = data;
 
     m = new form.Map(
       'public_ip_monitor',
