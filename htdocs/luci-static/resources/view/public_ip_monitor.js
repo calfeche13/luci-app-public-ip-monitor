@@ -25,8 +25,8 @@ var monitorIpv6 = '0';
 var ipv4ScriptContent = '';
 var ipv6ScriptContent = '';
 var history = {};
-var currentPublicIpv4 = 'N/A';
-var currentPublicIpv6 = 'N/A';
+var currentPublicIpv4 = _('N/A');
+var currentPublicIpv6 = _('N/A');
 
 function processTabVisibility(data, node = document) {
   toggleElement(data.monitorIpv4 == '1', "li[data-tab='ipv4']", node);
@@ -43,9 +43,9 @@ function parseHistory(historyArray) {
   for (let i = 0; i < historyArray.length; i++) {
     let historyData = historyArray[i];
     rs.push([
-      historyData["change_timestamp"] || "N/A",
-      historyData["from"] || "N/A",
-      historyData["to"] || "N/A",
+      historyData["change_timestamp"] || _('N/A'),
+      historyData["from"] || _('N/A'),
+      historyData["to"] || _('N/A'),
     ]);
   }
   return rs;
