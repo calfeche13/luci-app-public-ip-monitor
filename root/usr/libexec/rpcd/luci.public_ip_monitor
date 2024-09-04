@@ -41,8 +41,7 @@ local function retrieve_uci_option(section, option)
         -- .stringify() is equivalent to cjson's .encode()
         print(jsonc.stringify({uci_error = msg}))
 
-        -- Indicate failure in the return code
-        os.exit(1)
+        return ""
     end
 
     return value
@@ -109,6 +108,43 @@ local methods = {
 
         return r
       end
+    },
+
+    get_history = {
+        call = function()
+            local r = {}
+            local history_path = retrieve_uci_option('general', 'history_location')
+
+            r.result = fs.readfile(history_path)
+
+            return r
+        end
+    },
+
+    get_current_public_ipv4 = {
+        call = function()
+            local r = {}
+            local ipv4 = retrieve_uci_option('ipv4', 'current')
+
+            r.result = jsonc.stringify({
+                content = ipv4
+            })
+
+            return r
+        end
+    },
+
+    get_current_public_ipv6 = {
+        call = function()
+            local r = {}
+            local ipv6 = retrieve_uci_option('ipv6', 'current')
+
+            r.result = jsonc.stringify({
+                content = ipv6
+            })
+
+            return r
+        end
     }
 }
 
