@@ -1,12 +1,7 @@
 'use strict';
 'require view';
 'require form';
-'require poll';
-
-'require ui';
-'require uci';
 'require rpc';
-'require tools.widgets as widgets';
 
 /**
  * Shows/Hides element
@@ -36,7 +31,6 @@ var currentPublicIpv6 = 'N/A';
 function processTabVisibility(data, node = document) {
   toggleElement(data.monitorIpv4 == '1', "li[data-tab='ipv4']", node);
   toggleElement(data.monitorIpv6 == '1', "li[data-tab='ipv6']", node);
-  toggleElement(data.monitorIpv6 == '1' || data.monitorIpv4 == '1', "li[data-tab='history']", node);
 }
 
 function parseHistory(historyArray) {
