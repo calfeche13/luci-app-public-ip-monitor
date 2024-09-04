@@ -331,10 +331,6 @@ return view.extend({
     s = m.section(form.TypedSection, 'ipv6', _('IPv6'));
     s.anonymous = true;
 
-    // Setting up History Tab
-    s = m.section(form.TypedSection, 'history', _('History'));
-    s.anonymous = true;
-
     return m.render().then((map) => {
       m
         .data
