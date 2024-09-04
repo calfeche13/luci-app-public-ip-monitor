@@ -4,7 +4,8 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI app for monitoring Public IP
-LUCI_DEPENDS:=+luci-base
+LUCI_DEPENDS:=+luci-base \
+	+luci-mod-rpc
 LUCI_PKGARCH:=all
 
 PKG_LICENSE:=AGPL-3.0
