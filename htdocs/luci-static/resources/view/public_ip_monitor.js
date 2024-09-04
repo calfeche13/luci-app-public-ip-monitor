@@ -61,16 +61,16 @@ function processPostRendering(data, node = document) {
   var ipv4HistoryTbl = E('table', { 'class': 'table' }, [
     E('tr', { 'class': 'tr table-titles' }, [
       E('th', { 'class': 'th', 'style': 'width:36%;' }, [ _('Timestamp') ]),
-      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('From IPv4') ]),
-      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('To IPv4') ])
+      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('From') ]),
+      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('To') ])
     ])
   ]);
 
   var ipv6HistoryTbl = E('table', { 'class': 'table' }, [
     E('tr', { 'class': 'tr table-titles' }, [
       E('th', { 'class': 'th', 'style': 'width:36%;' }, [ _('Timestamp') ]),
-      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('From IPv6') ]),
-      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('To IPv6') ])
+      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('From') ]),
+      E('th', { 'class': 'th', 'style': 'width:32%;' }, [ _('To') ])
     ])
   ]);
 
@@ -88,13 +88,13 @@ function processPostRendering(data, node = document) {
         E('label', { 'class': 'cbi-value-title' }, _('Public IPv4: ')),
         E('div', { 'class': 'cbi-value-field' }, [
           E('div', [
-            E('input', { 'style': 'border: 0px; pointer-events: none;', 'value': data.currentPublicIpv4 || 'N/A', 'readonly': 'true' })
+            E('input', { 'style': 'border: 0px; pointer-events: none;', 'value': data.monitorIpv4 == '1' ? data.currentPublicIpv4 || _('N/A') : _('Not monitored'), 'readonly': 'true' })
           ])
         ]),
         E('label', { 'class': 'cbi-value-title' }, _('Public IPv6: ')),
         E('div', { 'class': 'cbi-value-field' }, [
           E('div', [
-            E('input', { 'style': 'border: 0px; pointer-events: none;', 'value': data.currentPublicIpv6 || 'N/A', 'readonly': 'true' })
+            E('input', { 'style': 'border: 0px; pointer-events: none;', 'value': data.monitorIpv6 == '1' ? data.currentPublicIpv6 || _('N/A') : _('Not monitored'), 'readonly': 'true' })
           ])
         ]),
       ])
