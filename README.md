@@ -8,7 +8,7 @@ Check the [Public IP Monitor Script](https://github.com/calfeche13/public-ip-mon
 
 ## Motivation
 
-Public IP Monitor was created to update AWS security group rules, specifically for allowing traffic from my home network. My goal is to maintain a continuous VPN connection between my OpenWrt router and an AWS server. This would enable me to do various things, such as hosting Jellyfin on my personal computer and allowing me and a long-distance loved one to watch movies or series together.
+Public IP Monitor was created to update AWS security group rules, specifically for allowing traffic from my home network. My goal is to maintain a continuous VPN connection between my OpenWrt router and an AWS server without exposing the VPN port to the public. This would enable me to do various things, such as hosting Jellyfin on my personal computer and allowing me and a long-distance loved one to watch movies or series together.
 
 ## Want to Support Me?
 
