@@ -1,4 +1,4 @@
-# Public IP Monitor
+# LuCI App Public IP Monitor
 
 A LuCI application that monitors the internet-facing public IP of the current network.
 
