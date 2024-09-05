@@ -37,7 +37,7 @@ scp -r root/* root@<Openwrt IP>:/
 scp -r htdocs/* root@<Openwrt IP>:/www/
 ```
 
-The above command is useful on development, to actually build and ipk package to install with opkg see [BUILDING.md](BUILDING.md)
+The above command is useful during development. To actually build an IPK package for installation with opkg, refer to [BUILDING.md](BUILDING.md)
 
 ## View
 ### Location
